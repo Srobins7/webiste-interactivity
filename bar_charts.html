@@ -45,15 +45,30 @@
         ];
 
         Plotly.newPlot('bar-chart-container', data);*/
-
-        var genres = []
+        //way 1
+        /*var genres = []
         var viewers = []
 
         barData.forEach(function(item){
             genres.push(item["genre"])
             viewers.push(item["viewers"])
 
+        })*/
+
+        //way 2 array's mapping method loop in place
+
+        /*var genres = barData.map(function(item){
+            return item["genre"]
         })
+
+        var viewers = barData.map(function(item){
+            return item["viewers"]
+        })*/
+
+        //way 3 one line version of mapping in place using arrow syntax
+
+        var genres = barData.map(item => item["genre"])
+        var viewers = barData.map(item => item["viewers"])
 
         console.log("Genres:", genres)
         console.log("Viewers:", viewers)
@@ -67,6 +82,8 @@
         ];
 
         Plotly.newPlot('bar-chart-container', data);
+
+
 
     </script>
 </body>
