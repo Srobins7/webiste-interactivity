@@ -13,7 +13,7 @@
 
     <div id="gradebook-app">
     </div>
-
+    <script src="https://d3js.org/d3-array.v2.min.js"></script>
     <script type="text/javascript">
 
         //
@@ -43,8 +43,41 @@
 
         console.log("GRADEBOOK", gradebook)
 
+        //question a
+
+        console.log(gradebook["downloadDate"])
+
+        console.log(gradebook["students"].length)
+
+        //c
+
+        gradebook["students"].forEach(function(item){
+            console.log(item["studentId"], item["finalGrade"])
+            //console.log(item.finalgrade)
 
 
+        })
+
+        //d
+
+        var grades = []
+        var gradeSum = 0
+
+        gradebook["students"].forEach(function(item){
+            grades.push(item["finalGrade"])
+            gradeSum += item["finalGrade"]
+        })
+
+        console.log("Grades:",grades)
+        console.log("Sum:", gradeSum)
+        console.log("AVG:", gradeSum/grades.length)
+
+
+        //E
+
+        console.log("Median:", d3.median(grades))
+        console.log("Mean:", d3.mean(grades)
+        
 
 
     </script>
